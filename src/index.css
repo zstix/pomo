@@ -59,7 +59,7 @@ button.red {
 
 .controls {
   padding: 1em 0;
-  min-height: 4em;
+  height: 4em;
 }
 
 .controls > button {
@@ -78,4 +78,5 @@ button.red {
 
 .log > ul li {
   padding: 0.4em 0;
+  text-transform: capitalize;
 }

@@ -6,26 +6,41 @@ import Log from './Log';
 const tomato = String.fromCodePoint(0x1F345);
 
 const durations = {
-  POMO: 1500,
-  SHORT: 300,
-  LONG: 900
+  POMO: { length: 1500, type: 'pomo' },
+  SHORT: { length: 300, type: 'break' },
+  LONG: { length: 900, type: 'break' },
 };
 
 const App = () => {
   const [running, setRunning] = useState(false);
-  const [time, setTime] = useState(durations.POMO);
+  const [time, setTime] = useState(durations.POMO.length);
+  const [history, setHistory] = useState([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       if (time === 0) {
         setRunning(false);
-        setTime(durations.POMO);
+        setTime(durations.POMO.length);
         return false;
       }
       if (running) setTime(time => time - 1);
     }, 1000);
     return () => clearInterval(interval);
   }, [running, setRunning, time]);
+
+  const startTimer = duration => {
+    const time  =new Date().toLocaleTimeString('en-US', {
+      hour12: true,
+      hour: 'numeric',
+      minute: 'numeric'
+    });
+    setTime(duration.length);
+    setRunning(true);
+    setHistory([
+      ...history,
+      { ...duration, time }
+    ]);
+  }
   
   return (
     <div>
@@ -36,22 +51,16 @@ const App = () => {
 
         <Controls
           running={running}
-          onStart={() => setRunning(true)}
+          onStart={() => startTimer(durations.POMO)}
+          onShortBreak={() => startTimer(durations.SHORT)}
+          onLongBreak={() => startTimer(durations.LONG)}
           onClear={() => {
             setRunning(false);
-            setTime(durations.POMO);
-          }}
-          onShortBreak={() => {
-            setTime(durations.SHORT);
-            setRunning(true);
-          }}
-          onLongBreak={() => {
-            setTime(durations.LONG);
-            setRunning(true);
+            setTime(durations.POMO.length);
           }}
          />
 
-         <Log />
+         <Log history={history} />
       </div>
     </div>
   );
