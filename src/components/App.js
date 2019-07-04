@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { timeToString } from '../utils';
+import { timeToString, playDoneSound } from '../utils';
 import Controls from './Controls';
 import Timer from './Timer';
 import Log from './Log';
@@ -21,6 +21,7 @@ const App = () => {
     const interval = setInterval(() => {
       if (time === 0) {
         stopTimer();
+        playDoneSound();
         return false;
       }
       if (running) {
