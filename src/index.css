@@ -3,18 +3,14 @@ body {
   font-family: sans-serif;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-weight: 400;
   margin: 0;
 }
 
-h1 {
-  font-size: 4em;
-}
-
-h2 {
-  font-size: 1.6em;
-}
+h1 { font-size: 4em; }
+h2 { font-size: 1.6em; }
+h3 { font-size: 1.4em; }
 
 button {
   background-color: lightgray;
@@ -29,6 +25,7 @@ button {
   cursor: pointer;
   outline: none;
   position: relative;
+  margin-bottom: 0.8em;
 }
 
 button::-moz-focus-inner {
@@ -54,7 +51,7 @@ button.red {
 
 .wrapper {
   padding: 20px;
-  width: 700px;
+  max-width: 700px;
   margin: 100px auto;
   background-color: white;
   border-radius: 20px;
@@ -62,9 +59,23 @@ button.red {
 
 .controls {
   padding: 1em 0;
-  height: 3em;
+  min-height: 4em;
 }
 
 .controls > button {
   margin-right: 1em;
+}
+
+.log {
+  border-top: 1px solid lightgray;
+  padding-top: 1em;
+}
+
+.log > ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.log > ul li {
+  padding: 0.4em 0;
 }

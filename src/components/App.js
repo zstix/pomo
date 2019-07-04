@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Controls from './Controls';
 import Timer from './Timer';
+import Log from './Log';
 
 const tomato = String.fromCodePoint(0x1F345);
 
@@ -49,6 +50,8 @@ const App = () => {
             setRunning(true);
           }}
          />
+
+         <Log />
       </div>
     </div>
   );
