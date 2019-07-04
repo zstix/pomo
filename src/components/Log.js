@@ -2,7 +2,7 @@ import React from 'react';
 
 const watch = String.fromCodePoint(0x231A);
 
-const Log = ({ history }) => (
+const Log = ({ history, onRemoveHistory }) => (
   <>
     {history.length !== 0 &&
       <section className="log">
@@ -15,7 +15,14 @@ const Log = ({ history }) => (
               {item.type}
               {' ('}
               {Math.floor(item.length / 60)}
-              {' minutes)'}
+              {' minutes) '}
+
+              <span
+                className="remove"
+                onClick={() => onRemoveHistory(index)}
+              >
+                delete
+              </span>
             </li>
           ))}
         </ul>

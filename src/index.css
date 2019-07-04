@@ -79,4 +79,15 @@ button.red {
 .log > ul li {
   padding: 0.4em 0;
   text-transform: capitalize;
+  cursor: pointer;
+}
+
+.log > ul li .remove {
+  color: lightgray;
+  text-transform: lowercase;
+  opacity: 0;
+}
+
+.log > ul li:hover .remove {
+  opacity: 1;
 }

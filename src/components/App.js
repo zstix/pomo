@@ -40,7 +40,11 @@ const App = () => {
       ...history,
       { ...duration, time }
     ]);
-  }
+  };
+
+  const removeHistory = index => {
+    setHistory(history.filter((_, i) => i !== index));
+  };
   
   return (
     <div>
@@ -60,7 +64,10 @@ const App = () => {
           }}
          />
 
-         <Log history={history} />
+         <Log
+          history={history}
+          onRemoveHistory={removeHistory}
+        />
       </div>
     </div>
   );
