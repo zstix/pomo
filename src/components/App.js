@@ -40,6 +40,14 @@ const App = () => {
             setRunning(false);
             setTime(durations.POMO);
           }}
+          onShortBreak={() => {
+            setTime(durations.SHORT);
+            setRunning(true);
+          }}
+          onLongBreak={() => {
+            setTime(durations.LONG);
+            setRunning(true);
+          }}
          />
       </div>
     </div>

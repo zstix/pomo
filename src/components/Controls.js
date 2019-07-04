@@ -1,6 +1,12 @@
 import React from 'react';
 
-const Controls = ({ running, onStart, onClear }) => (
+const Controls = ({
+  running,
+  onStart,
+  onShortBreak,
+  onLongBreak,
+  onClear
+ }) => (
   <section className="controls">
     {!running && (
       <button
@@ -22,8 +28,18 @@ const Controls = ({ running, onStart, onClear }) => (
 
     {!running && (
       <>
-        <button className="red break">break</button>
-        <button className="red break-long">long break</button>
+        <button
+          className="red break"
+          onClick={onShortBreak}
+        >
+          break
+        </button>
+        <button
+          className="red break-long"
+          onClick={onLongBreak}
+        >
+          long break
+        </button>
       </>
     )}
   </section>
