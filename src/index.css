@@ -2,3 +2,68 @@ body {
   background-color: lightblue;
   font-family: sans-serif;
 }
+
+h1, h2 {
+  font-weight: 400;
+  margin: 0;
+}
+
+h1 {
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 1.6em;
+}
+
+button {
+  background-color: lightgray;
+  border: none;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  padding: 0.5em 1em;
+  font-weight: 600;
+  border-radius: 0.6em;
+  border-bottom: 0.3em solid gray;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+button:active {
+  top: 0.3em;
+  border-bottom: none;
+}
+
+button.green {
+  background-color: limegreen;
+  border-bottom-color: green;
+  color: white;
+}
+
+button.red {
+  background-color: orangered;
+  border-bottom-color: darkred;
+  color: white;
+}
+
+.wrapper {
+  padding: 20px;
+  width: 700px;
+  margin: 100px auto;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.controls {
+  padding: 1em 0;
+}
+
+.controls > button {
+  margin-right: 1em;
+}
