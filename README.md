@@ -11,5 +11,5 @@ This is my pomodoro timer. Therea re many like it, but this one is mine.
 - [x] Layout
 - [x] Timers
 - [x] History
-- [ ] Session
 - [x] Notifications
+- [ ] Sessions
