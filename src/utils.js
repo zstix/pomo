@@ -38,6 +38,7 @@ const pause = (duration = 500) => new Promise((done) => {
   setTimeout(done, duration);
 });
 
+// NOTE: this sounds like garbage...find something better
 export const playDoneSound = async () => {
   const options = {
     duration: 50,

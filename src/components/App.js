@@ -10,6 +10,7 @@ const durations = {
   POMO: { length: 1500, type: 'pomo' },
   SHORT: { length: 300, type: 'break' },
   LONG: { length: 900, type: 'break' },
+  TEST: { length: 5, type: 'test' }
 };
 
 const App = () => {
@@ -68,6 +69,7 @@ const App = () => {
           onStart={() => startTimer(durations.POMO)}
           onShortBreak={() => startTimer(durations.SHORT)}
           onLongBreak={() => startTimer(durations.LONG)}
+          onTest={() => startTimer(durations.TEST)}
           onClear={() => stopTimer()}
          />
 
