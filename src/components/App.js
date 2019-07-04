@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { timeToString } from '../utils';
 import Controls from './Controls';
 import Timer from './Timer';
 import Log from './Log';
@@ -19,11 +20,13 @@ const App = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       if (time === 0) {
-        setRunning(false);
-        setTime(durations.POMO.length);
+        stopTimer();
         return false;
       }
-      if (running) setTime(time => time - 1);
+      if (running) {
+        document.title = `${timeToString(time - 1)} - Pomo`;
+        setTime(time => time - 1);
+      }
     }, 1000);
     return () => clearInterval(interval);
   }, [running, setRunning, time]);
@@ -42,6 +45,12 @@ const App = () => {
     ]);
   };
 
+  const stopTimer = () => {
+    setRunning(false);
+    setTime(durations.POMO.length);
+    document.title = 'zstix - Pomo';
+  }
+
   const removeHistory = index => {
     setHistory(history.filter((_, i) => i !== index));
   };
@@ -58,10 +67,7 @@ const App = () => {
           onStart={() => startTimer(durations.POMO)}
           onShortBreak={() => startTimer(durations.SHORT)}
           onLongBreak={() => startTimer(durations.LONG)}
-          onClear={() => {
-            setRunning(false);
-            setTime(durations.POMO.length);
-          }}
+          onClear={() => stopTimer()}
          />
 
          <Log
