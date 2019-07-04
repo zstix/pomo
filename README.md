@@ -7,7 +7,7 @@ This is my pomodoro timer. Therea re many like it, but this one is mine.
 ## ToDO
 - [x] Setup
 - [x] Layout
-- [ ] Timers
+- [x] Timers
 - [ ] History
 - [ ] Session
 - [ ] Notifications
