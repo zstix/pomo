@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { timeToString, playDoneSound, notify } from '../utils';
+import { timeToString, notify } from '../utils';
+import { beep } from '../sounds';
 import Controls from './Controls';
 import Timer from './Timer';
 import Log from './Log';
@@ -52,7 +53,7 @@ const App = () => {
     setTime(durations.POMO.length);
     document.title = 'zstix - Pomo';
     if (done) {
-      playDoneSound();
+      beep();
       notify('Timer Complete!')
     }
   }
