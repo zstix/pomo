@@ -62,6 +62,7 @@ button.red {
 
 .controls {
   padding: 1em 0;
+  height: 3em;
 }
 
 .controls > button {

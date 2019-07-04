@@ -1,13 +1,23 @@
 import React from 'react';
 
-const Controls = ({ running }) => (
+const Controls = ({ running, onStart, onClear }) => (
   <section className="controls">
     {!running && (
-      <button className="green start">start</button>
+      <button
+        className="green start"
+        onClick={onStart}
+       >
+        start
+      </button>
     )}
 
     {running && (
-      <button className="gray clear">clear</button>
+      <button
+        className="gray clear"
+        onClick={onClear}
+      >
+        clear
+      </button>
     )}
 
     {!running && (

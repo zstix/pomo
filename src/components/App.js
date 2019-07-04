@@ -9,8 +9,8 @@ const durations = {
 };
 
 const App = () => {
-  const [running] = useState(false);
-  const [time] = useState(durations.POMO);
+  const [running, setRunning] = useState(false);
+  const [time, setTime] = useState(durations.POMO);
   
   const tomato = String.fromCodePoint(0x1F345);
 
@@ -19,7 +19,14 @@ const App = () => {
       <div className="wrapper">
         <h2>{tomato} Pomodoro Timer</h2>
         <Timer time={time} />
-        <Controls running={running} />
+        <Controls
+          running={running}
+          onStart={() => setRunning(true)}
+          onClear={() => {
+            setRunning(false);
+            setTime(durations.POMO);
+          }}
+         />
       </div>
     </div>
   );
