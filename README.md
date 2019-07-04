@@ -13,3 +13,4 @@ This is my pomodoro timer. Therea re many like it, but this one is mine.
 - [x] History
 - [x] Notifications
 - [ ] Sessions
+- [ ] User Settings
