@@ -4,6 +4,7 @@ This is my pomodoro timer. Therea re many like it, but this one is mine.
 ## Features
 - Timer
 - History
+- Notifications
 
 ## ToDO
 - [x] Setup
@@ -11,4 +12,4 @@ This is my pomodoro timer. Therea re many like it, but this one is mine.
 - [x] Timers
 - [x] History
 - [ ] Session
-- [ ] Notifications
+- [x] Notifications

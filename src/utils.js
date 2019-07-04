@@ -57,3 +57,21 @@ export const playDoneSound = async () => {
   await pause(50);
   await beep(options);
 }
+
+export const notify = message => {
+  if (!("Notification" in window)) {
+    console.log('This browser does not support dekstop notifications');
+  }
+
+  else if (Notification.permission === 'granted') {
+    new Notification(message);
+  }
+
+  else if (Notification.permission !== 'denied') {
+    Notification.requestPermission().then((permission) => {
+      if (permission === 'granted') {
+        new Notification(message);
+      }
+    })
+  }
+};

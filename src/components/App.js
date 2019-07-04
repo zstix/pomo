@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { timeToString, playDoneSound } from '../utils';
+import { timeToString, playDoneSound, notify } from '../utils';
 import Controls from './Controls';
 import Timer from './Timer';
 import Log from './Log';
@@ -10,8 +10,9 @@ const durations = {
   POMO: { length: 1500, type: 'pomo' },
   SHORT: { length: 300, type: 'break' },
   LONG: { length: 900, type: 'break' },
-  TEST: { length: 5, type: 'test' }
 };
+
+notify('Ready to start!');
 
 const App = () => {
   const [running, setRunning] = useState(false);
@@ -21,8 +22,7 @@ const App = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       if (time === 0) {
-        stopTimer();
-        playDoneSound();
+        stopTimer(true);
         return false;
       }
       if (running) {
@@ -47,10 +47,14 @@ const App = () => {
     ]);
   };
 
-  const stopTimer = () => {
+  const stopTimer = done => {
     setRunning(false);
     setTime(durations.POMO.length);
     document.title = 'zstix - Pomo';
+    if (done) {
+      playDoneSound();
+      notify('Timer Complete!')
+    }
   }
 
   const removeHistory = index => {
@@ -69,7 +73,6 @@ const App = () => {
           onStart={() => startTimer(durations.POMO)}
           onShortBreak={() => startTimer(durations.SHORT)}
           onLongBreak={() => startTimer(durations.LONG)}
-          onTest={() => startTimer(durations.TEST)}
           onClear={() => stopTimer()}
          />
 

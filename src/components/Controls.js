@@ -5,8 +5,7 @@ const Controls = ({
   onStart,
   onShortBreak,
   onLongBreak,
-  onClear,
-  onTest
+  onClear
  }) => (
   <section className="controls">
     {!running && (
@@ -42,15 +41,6 @@ const Controls = ({
           long break
         </button>
       </>
-    )}
-
-    {!running && (
-      <button
-        className="yellow test"
-        onClick={onTest}
-      >
-        test
-      </button>
     )}
   </section>
 );
