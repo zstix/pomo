@@ -1,5 +1,5 @@
 # POMO
-This is my pomodoro timer. Therea re many like it, but this one is mine.
+This is my pomodoro timer. There are many like it, but this one is mine.
 
 ## Features
 - Timer
